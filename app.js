@@ -7,11 +7,17 @@ const PORT = 3000;
 const homepage = require('./controllers/homepage');
 
 // Middlewares
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
+
 app.set('view engine', 'ejs');
 
-// Routes
+// Get Routes
 app.get('/', homepage.homePageHandler);
+app.get('/dashboard', homepage.dashboardHandler);
+
+
+// Post Routes
+app.post('/login', homepage.loginHandler);
 
 // Starting server
 app.listen(PORT, ()=> console.log(`Server is up at ${PORT}`));

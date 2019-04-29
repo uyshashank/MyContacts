@@ -1,12 +1,14 @@
 <div class="container">
     <div class="row justify-content-center mt-5">
         <div class="col-md-6">
-            <form class="input-group form-group" method="POST" action="/login">
-                <input type="email" class="form-control" placeholder="Enter email" required>
-                <div class="input-group-append">
-                    <span class="input-group-text bg-primary">
-                        <button type="submit" class="btn btn-outline-primary btn-sm text-white">Fetch Contacts</button>
-                    </span>
+            <form action="/login" method="POST">
+                <div class="input-group">
+                    <input type="email" name="email" class="form-control" placeholder="Enter email" required>
+                    <div class="input-group-append">
+                        <span class="input-group-text bg-primary">
+                            <input type="submit" class="btn btn-outline-primary btn-sm text-white" value="Fetch Contacts">
+                        </span>                        
+                    </div>
                 </div>
             </form>
         </div>
