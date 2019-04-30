@@ -1,10 +1,27 @@
-const {MongoClient} = require('mongodb');
+const MongoClient = require('mongodb').MongoClient;
 const url = 'mongodb+srv://uyshashank:pass1997@mycontacts-etjyh.mongodb.net/';
+let client;
 
-MongoClient.connect(url, {useNewUrlParser:true}, (err, client) => {
-    if(err)
-        return console.log("Error Occured in connecting!", err);
+(function connect() {
+    MongoClient.connect(url, {
+        useNewUrlParser: true
+    }, (err, localClient) => {
+        client = localClient;
+        if (err)
+            console.log("Error in establishing connection!", err);
+    });
+})();
 
-    console.log("Connection established!");
-    client.close();
-});
+function saveData(contact) {
+    let db = client.db('users');
+    return db.collection('uyshashank@gmail.com').insertOne(contact);
+}
+
+function loadData() {
+    let db = client.db('users');
+    return db.collection('uyshashank@gmail.com').find().toArray();
+}
+module.exports = {
+    saveData,
+    loadData    
+}

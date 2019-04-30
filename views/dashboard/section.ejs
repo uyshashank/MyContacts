@@ -1,3 +1,63 @@
 <div class="container">
-    Hi, find your contacts!
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <button class="btn btn-primary mt-2" id="addBTN" onclick="show();">Add Contact <i
+                    class="fas fa-plus-circle"></i></button>
+
+            <div class="row form mt-4" style="display:none">
+
+                <div class="col-md-12">
+                    <div class="form">
+                        <div class="float-right">
+                            <a href="#" onclick="hide()"><i class="far fa-times-circle" onclick="hide();"></i></a>
+                        </div>
+                        <form>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="Name" placeholder="Name" id="name">
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" class="form-control" name="Mobile" placeholder="Mobile number"
+                                    id="mobile">
+                            </div>
+                            <div class="form-group">
+                                <select class="form-control" name="Category" placeholder="Category" id="category">
+                                    <option>Friend</option>
+                                    <option>Family</option>
+                                    <option>Office</option>
+                                    <option>Neighbour</option>
+                                    <option>Teacher</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-primary" onclick="save()">Save</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 border-left">
+            <h3 class="text-center">Yours contacts</h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Mobile Number</th>
+                        <th scope="col">Category</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <% for(let i=0;i<data.length;i++) {%>
+                    <tr>
+                        <td scope="row"> <%=i+1%> </td>
+                        <td><%= data[i].Name %></td>
+                        <td><%= data[i].Mobile %></td>
+                        <td><%= data[i].Category %></td>
+                    </tr>
+                    <% }%>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
