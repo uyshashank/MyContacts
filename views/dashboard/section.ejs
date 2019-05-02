@@ -55,8 +55,8 @@
                         <td><%= data[i].Name %></td>
                         <td><%= data[i].Mobile %></td>
                         <td><%= data[i].Category %></td>
-                        <td class="text-center"> <a href="/edit"><i class="fas fa-pencil-alt"></i></a> </td>
-                        <td class="text-center"> <a href="/remove"><i class="far fa-trash-alt"></i></a> </td>
+                        <td class="text-center"> <a href="" onclick="edit();"><i class="fas fa-pencil-alt"></i></a> </td>
+                        <td class="text-center"> <a href="" id="d" onclick="remove(event);"><i class="far fa-trash-alt"></i></a> </td>
                     </tr>
                     <% }%>
                 </tbody>
