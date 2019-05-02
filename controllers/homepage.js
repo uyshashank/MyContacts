@@ -1,21 +1,23 @@
 const {
     loadData
 } = require('../model/db');
-
-function homePageHandler(req, res) {
+let email;
+function homePageHandler(_req, res) {
     res.render('home/home');
 }
 
 function loginHandler(req, res) {
+    email = req.body.email;
     res.redirect('/dashboard');
 }
 
-function dashboardHandler(_req, res) {
-    loadData()
+function dashboardHandler(req, res) {    
+     loadData(email)
     .then((data) => res.render('dashboard/dashboard', {data}));
 }
 module.exports = {
     homePageHandler,
     loginHandler,
-    dashboardHandler
+    dashboardHandler,
+    email
 }

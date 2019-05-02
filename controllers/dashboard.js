@@ -1,5 +1,6 @@
 let contact;
 let db = require('../model/db');
+
 function save(req,res){
     contact = req.body;        
     db.saveData(contact)
@@ -8,7 +9,7 @@ function save(req,res){
     })
     .catch(()=>{
         res.send("Data insertion failed");
-    });    
+    });
 }
 module.exports = {
     contact,

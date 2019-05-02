@@ -1,6 +1,6 @@
 const MongoClient = require('mongodb').MongoClient;
 const url = 'mongodb+srv://uyshashank:pass1997@mycontacts-etjyh.mongodb.net/';
-let client;
+let client, Email;
 
 (function connect() {
     MongoClient.connect(url, {
@@ -14,12 +14,17 @@ let client;
 
 function saveData(contact) {
     let db = client.db('users');
-    return db.collection('uyshashank@gmail.com').insertOne(contact);
+    if(Email == undefined)
+        Email = 'a@d';
+    return db.collection(Email).insertOne(contact);
 }
 
-function loadData() {
-    let db = client.db('users');
-    return db.collection('uyshashank@gmail.com').find().toArray();
+function loadData(email) {
+    let db = client.db('users');      
+    Email = email;
+    if(email == undefined)
+        email = 'a@d';
+    return db.collection(email).find().toArray();
 }
 module.exports = {
     saveData,
