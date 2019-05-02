@@ -2,14 +2,22 @@ let data;
 
 function save() {
     event.preventDefault();
-    if ($('#name').val() == '') {
+    if ($('#name').val() != '')
+        $('.warning-name').hide();
+
+    if ($('#mobile').val() != '')
+        $('.warning-mob').hide();
+
+    if ($('#name').val() == '')
         $('.warning-name').show();
-    } else if ($('#mobile').val() == '') {
+
+    else if ($('#mobile').val() == '')
         $('.warning-mob').show();
-    } else if ($('#name').val() && $('#mobile').val() == '') {
-        $('.warning-mob').show();
-        $('.warning-name').show();
-    } else {
+
+    else if ($('#name').val() && $('#mobile').val() == '')
+        $('.warning-name, .warning-mob').show();        
+    
+    else {
         data = {
             "Name": $('#name').val(),
             "Mobile": $('#mobile').val(),
