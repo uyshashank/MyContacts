@@ -44,6 +44,7 @@ function remove(elem){
     event.preventDefault();
     let elem_id = elem.path[3].children[2].innerText;    
     deleteNumber(elem_id);
+    elem.path[3].remove();
 }
 
 function deleteNumber(elem_id){    
