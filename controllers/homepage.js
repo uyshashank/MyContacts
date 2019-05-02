@@ -11,9 +11,9 @@ function loginHandler(req, res) {
     res.redirect('/dashboard');
 }
 
-function dashboardHandler(req, res) {    
+function dashboardHandler(_req, res) {    
      loadData(email)
-    .then((data) => res.render('dashboard/dashboard', {data}));
+    .then((data) => res.render('dashboard/dashboard', {data, email}));
 }
 module.exports = {
     homePageHandler,

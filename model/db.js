@@ -20,13 +20,19 @@ function saveData(contact) {
 }
 
 function loadData(email) {
-    let db = client.db('users');      
+    let db = client.db('users');
     Email = email;
     if(email == undefined)
         email = 'a@d';
     return db.collection(email).find().toArray();
 }
+
+function deleteContact(number){
+    let db = client.db('users');
+    return db.collection(Email).deleteOne({'Mobile':number});
+}
 module.exports = {
     saveData,
-    loadData    
+    loadData,
+    deleteContact   
 }

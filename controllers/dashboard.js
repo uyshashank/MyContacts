@@ -11,7 +11,18 @@ function save(req,res){
         res.send("Data insertion failed");
     });
 }
+function deleteNumber(req, res){
+    let number = req.body.elem_id;
+    db.deleteContact(number)
+    .then(()=>{
+        res.send("Successfully Deleted");
+    })
+    .catch(()=>{
+        res.send("Contact deletion failed");
+    });
+}
 module.exports = {
     contact,
-    save
+    save,
+    deleteNumber
 }

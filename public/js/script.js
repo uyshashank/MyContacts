@@ -40,8 +40,23 @@ function edit(){
     event.preventDefault();
     
 }
-function remove(element){
+function remove(elem){
     event.preventDefault();
-    console.log(element.path[3].children[2].innerText);
-    // console.dir(element);
+    let elem_id = elem.path[3].children[2].innerText;    
+    deleteNumber(elem_id);
+}
+
+function deleteNumber(elem_id){    
+    if(elem_id != undefined || null || ''){
+        fetch('/delete', {
+            method: 'POST',
+            body: JSON.stringify({elem_id}),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(res => res.text())
+        .then(_response => {
+            console.log("Positive");
+        });
+    }    
 }
