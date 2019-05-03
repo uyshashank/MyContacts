@@ -7,7 +7,7 @@ function save(req,res){
     .then(()=>{
         res.send("Successfully Inserted");
     })
-    .catch(()=>{
+    .catch(()=>{        
         res.send("Data insertion failed");
     });
 }
@@ -21,8 +21,20 @@ function deleteNumber(req, res){
         res.send("Contact deletion failed");
     });
 }
+
+function updateNumber(req,res){
+    let mod_contact = req.body;
+    db.updateContact(mod_contact)
+    .then(()=>{
+        res.send("Successfully Updated");
+    })
+    .catch(()=>{
+        res.send("Contact updation failed");
+    });
+}
 module.exports = {
     contact,
     save,
-    deleteNumber
+    deleteNumber,
+    updateNumber
 }

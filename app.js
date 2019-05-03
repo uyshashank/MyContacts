@@ -29,6 +29,7 @@ app.get('/dashboard', homepage.dashboardHandler);
 app.post('/login', homepage.loginHandler);
 app.post('/save', dashboard.save);
 app.post('/delete', dashboard.deleteNumber);
+app.post('/update', dashboard.updateNumber);
 
 // Starting server
 app.listen(PORT, () => console.log(`Server is up at ${PORT}`));
