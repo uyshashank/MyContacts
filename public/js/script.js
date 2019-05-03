@@ -33,7 +33,7 @@ function save() {
             }).then(res => res.text())
             .then(_response => {
                 let sr = $('.tbrow').length + 1;
-                $('#tableBody').append('<tr class="tbrow"><td scope="row">' + sr + '</td><td>' + data.Name + '</td><td>' + data.Mobile + '</td><td>' + data.Category + '</td>' + '<td class="text-center"> <a href="#" onclick="edit(event);"><i class="fas fa-pencil-alt"></i></a> </td><td class="text-center"> <a href="#" onclick="remove(event);"><i class="far fa-trash-alt"></i></a> </td>' + '</tr>');
+                $('#tableBody').append('<tr class="tbrow"><td scope="row">' + sr + '</td><td>' + data.Name + '</td><td>' + data.Mobile + '</td><td>' + data.Category + '</td>' + '<td class="text-center"> <a href="#" onclick="edit(event);"><i class="fas text-secondary fa-pencil-alt"></i></a> </td><td class="text-center"> <a href="#" onclick="remove(event);"><i class="far text-dark fa-trash-alt"></i></a> </td>' + '</tr>');
             });
     }
 } 
@@ -52,7 +52,7 @@ function edit(elem){
     element_name.innerHTML = '<input type="text" class="form-control element_name w-75" name="Name" value="' + text_name +'">';
     element_mobile.innerHTML = '<input type="text" class="form-control element_mobile w-75" name="Mobile" value="' + text_mobile +'">';
     element_category.innerHTML = '<div class="form-group"> <select class="form-control element_category" name="Category" placeholder="Category" id="category"> <option>Friend</option> <option>Family</option> <option>Office</option> <option>Neighbour</option> <option>Teacher</option> </select> </div>';
-    element_icon.innerHTML = '<a href="" onclick="modify(event);"><i class="fas fa-check"></i></a>';
+    element_icon.innerHTML = '<a href="" onclick="modify(event);"><i class="fas text-secondary fa-check"></i></a>';
 }
 // Function to modify a contact
 function modify(elem){
@@ -72,7 +72,7 @@ function modify(elem){
     element_mobile.innerHTML = mod_mobile;
     
     element_category.innerHTML = mod_category;
-    element_icon.innerHTML = '<a href="" onclick="edit(event);"><i class="fas fa-pencil-alt"></i></a>';
+    element_icon.innerHTML = '<a href="" onclick="edit(event);"><i class="fas text-secondary fa-pencil-alt"></i></a>';
     let data = {
         Name: mod_name,
         Mobile: mod_mobile,
@@ -80,8 +80,8 @@ function modify(elem){
         old_mobile
     }
     fetch('/update', {
-        method: 'POST', // or 'PUT'
-        body: JSON.stringify(data), // data can be `string` or {object}!
+        method: 'POST', 
+        body: JSON.stringify(data),
         headers: {
             'Content-Type': 'application/json'
         }

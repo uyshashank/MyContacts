@@ -1,5 +1,5 @@
 const MongoClient = require('mongodb').MongoClient;
-const url = 'mongodb+srv://uyshashank:pass1997@mycontacts-etjyh.mongodb.net/';
+const url = 'mongodb+srv://username:<password>@mycontacts-etjyh.mongodb.net/';
 let client, Email;
 
 (function connect() {
@@ -45,8 +45,9 @@ function updateContact(contact) {
         }
     }, {
         returnOriginal: false
-    });
+    });    
 }
+
 module.exports = {
     saveData,
     loadData,
