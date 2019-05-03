@@ -2,6 +2,7 @@ let data;
 let old_mobile;
 function save() {
     event.preventDefault();
+ 
     if ($('#name').val() != '')
         $('.warning-name').hide();
 
