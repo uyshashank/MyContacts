@@ -1,8 +1,11 @@
 const {
-    loadData
+    loadData,
+    userCount
 } = require('../model/db');
 let email;
-function homePageHandler(_req, res) {
+function homePageHandler(req, res) {
+    userCount()
+    .then(res=>console.log(res));
     res.render('home/home');
 }
 

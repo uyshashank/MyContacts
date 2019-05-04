@@ -1,4 +1,4 @@
-const MongoClient = require('mongodb').MongoClient;
+const {MongoClient, ObjectID} = require('mongodb');
 const url = 'mongodb+srv://username:<password>@mycontacts-etjyh.mongodb.net/';
 let client, Email;
 
@@ -11,7 +11,18 @@ let client, Email;
         })
         .catch((err) => console.log("Error in connnecting! " + err));
 })();
-
+function userCount(){    
+    let db = client.db('users');        
+    return db.collection('userCount').findOneAndUpdate({
+        '_id': new ObjectID('5ccd61231c9d440000fc4f65')
+    }, {
+        $inc: {
+            'userCount':1
+        }
+    }, {
+        returnOriginal: false
+    });
+}
 function saveData(contact) {
     let db = client.db('users');
     
@@ -52,5 +63,6 @@ module.exports = {
     saveData,
     loadData,
     deleteContact,
-    updateContact
+    updateContact,
+    userCount
 }
