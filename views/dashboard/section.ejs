@@ -53,21 +53,25 @@
                         <th scope="col">Name</th>
                         <th scope="col">Mobile</th>
                         <th scope="col">Category</th>
-                        <th scope="col" class="text-center">Edit</th>
-                        <th scope="col" class="text-center">Remove</th>
+                        <th scope="col" class="text-center">Modify</th>
+                        
                     </tr>
                 </thead>
-                <tbody id="tableBody" style="font-family: 'PT Sans', sans-serif;">
-                    <% for(let i=0;i<data.length;i++) {%>
-                    <tr class="tbrow">
-                        <td scope="row" class="srno"> <%=i+1%> </td>
+                <tbody style="font-family: 'PT Sans', sans-serif;">
+                    <% for(let i=0;i<=data.length-1;i++) {%>
+                    <tr>
+                        <td scope="row" class="srno"> <%=i+1%></td>
                         <td><%= data[i].Name %></td>
                         <td><%= data[i].Mobile %></td>
                         <td><%= data[i].Category %></td>
-                        <td class="text-center"> <a href="" onclick="edit(event);"><i
-                                    class="fas fa-pencil-alt text-secondary"></i></a> </td>
-                        <td class="text-center"> <a href="" onclick="remove(event);"><i
-                                    class="far fa-trash-alt text-dark"></i></a> </td>
+                        <td class="text-center">
+                            <a href="" class="px-1" onclick="edit(event);">
+                                <i class="fas fa-pencil-alt text-secondary"></i>
+                            </a>
+                            <a href="" class="px-1" onclick="remove(event);">
+                                <i class="far fa-trash-alt text-dark"></i>
+                            </a>
+                        </td>                        
                     </tr>
                     <% }%>
                 </tbody>
