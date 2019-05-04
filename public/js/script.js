@@ -37,7 +37,7 @@ function save() {
             }).then(res => res.text())
             .then(_response => {
                 let sr = $('.tbrow').length + 1;
-                $('#tableBody').append('<tr class="tbrow"><td scope="row">' + sr + '</td><td>' + data.Name + '</td><td>' + data.Mobile + '</td><td>' + data.Category + '</td>' + '<td class="text-center">' +  edit_icon + del_icon + '</tr>');
+                $('#tableBody').append('<tr class="tbrow"><td scope="row">' + sr + '</td><td>' + data.Name + '</td><td>' + data.Mobile + '</td><td>' + data.Category + '</td>' + '<td class="text-center">' +  edit_icon + del_icon + '</td></tr>');
             });
     }
 } 
