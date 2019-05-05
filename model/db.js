@@ -2,16 +2,11 @@ const {MongoClient, ObjectID} = require('mongodb');
 const url = 'mongodb+srv://username:<password>@mycontacts-etjyh.mongodb.net/';
 let client, Email;
 
-(function connect() {
-    MongoClient.connect(url, {
-            useNewUrlParser: true
-        })
-        .then((localclient) => {
-            client = localclient;
-        })
-        .catch((err) => console.log("Error in connnecting! " + err));
-})();
-function userCount(){    
+function connect() {    
+    return MongoClient.connect(url, {useNewUrlParser: true});
+};
+function userCount(localclient){    
+    client = localclient;
     let db = client.db('users');        
     return db.collection('userCount').findOneAndUpdate({
         '_id': new ObjectID('5ccd61231c9d440000fc4f65')
@@ -58,11 +53,17 @@ function updateContact(contact) {
         returnOriginal: false
     });    
 }
-
+function closeDB(){
+   client.close()
+   .then((con) => console.log("Connection closed -> " + con))
+   .catch((err) => console.log("Err -> " + err))
+}
 module.exports = {
     saveData,
     loadData,
     deleteContact,
     updateContact,
-    userCount
+    userCount,
+    closeDB,
+    connect
 }

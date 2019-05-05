@@ -23,7 +23,7 @@ app.set('view engine', 'ejs');
 // Get Routes
 app.get('/', homepage.homePageHandler);
 app.get('/dashboard', homepage.dashboardHandler);
-
+app.get('/logout', homepage.logout);
 
 // Post Routes
 app.post('/login', homepage.loginHandler);
