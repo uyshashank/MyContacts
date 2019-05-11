@@ -58,8 +58,11 @@ function updateContact(contact) {
 }
 function closeDB(){
    client.close()
-   .then((con) => console.log("Connection closed -> " + con))
    .catch((err) => console.log("Err -> " + err))
+}
+function showMeInfo(localclient){
+    let db = localclient.db('users');
+    return db.collection('userCount').find().toArray();
 }
 module.exports = {
     saveData,
@@ -68,5 +71,6 @@ module.exports = {
     updateContact,
     userCount,
     closeDB,
-    connect
+    connect,
+    showMeInfo
 }
