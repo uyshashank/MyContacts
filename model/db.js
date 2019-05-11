@@ -7,7 +7,10 @@ function connect() {
 };
 function userCount(localclient){    
     client = localclient;
-    let db = client.db('users');        
+    let db = client.db('users');    
+    db.collection('userCount').insertOne({
+        "Date":Date()
+    }) 
     return db.collection('userCount').findOneAndUpdate({
         '_id': new ObjectID('5ccd61231c9d440000fc4f65')
     }, {
