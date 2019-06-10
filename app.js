@@ -25,6 +25,9 @@ app.get('/', homepage.homePageHandler);
 app.get('/dashboard', homepage.dashboardHandler);
 app.get('/logout', homepage.logout);
 app.get('/userInfo', homepage.userInfo);
+app.get('/file', (req,res)=>{
+    res.render('googlea93b6d989c0562af');
+});
 
 // Post Routes
 app.post('/login', homepage.loginHandler);
