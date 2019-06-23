@@ -1,0 +1,27 @@
+{
+  "name": "mycontacts",
+  "version": "1.0.0",
+  "description": "Save your contacts!",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "(https://github.com/uyshashank/MyContacts.git)"
+  },
+  "keywords": [
+    "Contacts",
+    "MyContacts",
+    "Store your contacts for free"
+  ],
+  "author": "Shashank Yenurkar",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "mongodb": "^3.2.3"
+  }
+}
